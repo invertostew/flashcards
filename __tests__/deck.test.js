@@ -1,20 +1,13 @@
 'use strict';
 
 const Deck = require('../src/deck.js');
+const Flashcard = require('../src/flashcard.js');
 
 let deck, flashcards;
 beforeEach(() => {
     flashcards = [
-        {
-            concept: 'Concept 1',
-            definition: 'Definition 1',
-            category: 'Category 1'
-        },
-        {
-            concept: 'Concept 2',
-            definition: 'Definition 2',
-            category: 'Category 2'
-        }
+        new Flashcard('Concept 1', 'Definition 1', 'Category 1'),
+        new Flashcard('Concept 2', 'Definition 2', 'Category 2')
     ];
     deck = new Deck(flashcards);
 });
