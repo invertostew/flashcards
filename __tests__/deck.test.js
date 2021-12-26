@@ -25,6 +25,13 @@ describe('Deck', () => {
     });
     test('Returns the flashcards property', () => {
         expect(deck.flashcards).toEqual(flashcards);
+        expect(deck.flashcards[0]).toEqual(
+            {
+                concept: 'Concept 1',
+                definition: 'Definition 1',
+                category: 'Category 1'
+            }
+        );
     });
     test('Returns the _currentFlashcard property', () => {
         expect(deck._currentFlashcard).toBe(null);
