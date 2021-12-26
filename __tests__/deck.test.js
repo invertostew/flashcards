@@ -52,3 +52,11 @@ describe('drawFlashcard', () => {
         expect(deck._removedFlashcards).toEqual([deck._currentFlashcard]);
     });
 });
+
+describe('skipFlashcard', () => {
+    test('Resets the _currentFlashcard property to null', () => {
+        deck._currentFlashcard = 'Anything but null';
+        deck.skipFlashcard();
+        expect(deck._currentFlashcard).toBe(null);
+    });
+});

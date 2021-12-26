@@ -19,8 +19,12 @@ Deck.prototype._removeFlashcard = function () {
         return flashcard === this._currentFlashcard;
     });
     const removedFlashcard = this.flashcards.splice(currentFlashcardIndex, 1);
-    
+
     this._removedFlashcards.push(removedFlashcard[0]);
+}
+
+Deck.prototype.skipFlashcard = function () {
+    this._currentFlashcard = null;
 }
 
 module.exports = Deck;
