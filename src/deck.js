@@ -27,4 +27,11 @@ Deck.prototype.skipFlashcard = function () {
     this._currentFlashcard = null;
 }
 
+Deck.prototype.resetDeck = function () {
+    const resetFlashcards = this.flashcards.concat(this._removedFlashcards);
+    this.flashcards = resetFlashcards;
+    this._currentFlashcard = null;
+    this._removedFlashcards = [];
+}
+
 module.exports = Deck;

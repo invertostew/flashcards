@@ -60,3 +60,43 @@ describe('skipFlashcard', () => {
         expect(deck._currentFlashcard).toBe(null);
     });
 });
+
+describe('resetDeck', () => {
+    test('Combines the _removedFlashcards elements back into the flashcards array', () => {
+        deck._removedFlashcards = [
+            {
+                concept: 'Concept 3',
+                definition: 'Definition 3',
+                category: 'Category 3'
+            }
+        ];
+        deck.resetDeck();
+        expect(deck.flashcards).toEqual([
+            {
+                concept: 'Concept 1',
+                definition: 'Definition 1',
+                category: 'Category 1'
+            },
+            {
+                concept: 'Concept 2',
+                definition: 'Definition 2',
+                category: 'Category 2'
+            },
+            {
+                concept: 'Concept 3',
+                definition: 'Definition 3',
+                category: 'Category 3'
+            }
+        ]);
+    });
+    test('Resets the _currentFlashcard property', () => {
+        deck._currentFlashcard = 'Anything but null';
+        deck.resetDeck();
+        expect(deck._currentFlashcard).toBe(null);
+    });
+    test('Resets the _removedFlashcards property', () => {
+        deck._removedFlashcards = ['Anything but an empty array'];
+        deck.resetDeck();
+        expect(deck._removedFlashcards).toEqual([]);
+    });
+});
