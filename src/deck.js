@@ -18,8 +18,8 @@ Deck.prototype.drawFlashcard = function () {
     }
 
     const index = Math.floor(Math.random() * this.flashcards.length);
-    const flashcard = this.flashcards[index];
-    this._currentFlashcard = flashcard;
+    
+    this._currentFlashcard = this.flashcards[index];
     this._removeFlashcard();
 }
 
@@ -32,6 +32,7 @@ Deck.prototype._removeFlashcard = function () {
         return flashcard === this._currentFlashcard;
     });
     const removedFlashcard = this.flashcards.splice(currentFlashcardIndex, 1);
+
     this._removedFlashcards.push(removedFlashcard[0]);
 }
 
@@ -45,6 +46,7 @@ Deck.prototype.skipFlashcard = function () {
 
 Deck.prototype.resetDeck = function () {
     const resetFlashcards = this.flashcards.concat(this._removedFlashcards);
+
     this.flashcards = resetFlashcards;
     this._currentFlashcard = settings.defaultCurrentFlashcard;
     this._removedFlashcards = [];
