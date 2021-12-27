@@ -1,0 +1,100 @@
+/*
+    Reset browser individual CSS files,
+    Set up default styles.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    min-height: inherit;
+    background-color: #282a36;
+    color: #f8f8f2;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+    color: #ff79c6;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/*
+    Main
+*/
+#main {
+    width: 20em;
+    height: 30em;
+    perspective: 70em;
+}
+
+#main:hover .flashcard {
+    transform: rotateY(180deg);
+}
+
+/*
+    Flashcard
+*/
+.flashcard {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.36);
+    color: #282a36;
+}
+
+.flashcard:hover {
+    transform: rotateY(180deg);
+}
+
+.flashcard__front,
+.flashcard__back {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    backface-visibility: hidden;
+}
+
+.flashcard__front {
+    background-color: #f8f8f2;
+}
+
+.flashcard__back {
+    background-color: #f8f8f2;
+    transform: rotateY(180deg);
+}
