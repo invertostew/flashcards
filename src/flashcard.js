@@ -21,6 +21,7 @@ Flashcard.prototype.showAllExamples = function () {
         if (index === 0) return `Example ${index + 1}:\n${example}`;
         return `${accumulator}\n\nExample ${index + 1}:\n${example}`;
     }, '');
+    
     return `${examplesIntro}\n\n${examples}`;
 }
 
