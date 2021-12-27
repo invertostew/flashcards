@@ -6,8 +6,13 @@ const Flashcard = require('../src/flashcard.js');
 let deck, flashcards;
 beforeEach(() => {
     flashcards = [
-        new Flashcard('Concept 1', 'Definition 1', 'Category 1'),
-        new Flashcard('Concept 2', 'Definition 2', 'Category 2')
+        new Flashcard('Concept 1', 'Definition 1', 'Category 1', [
+            'Example 1'
+        ]),
+        new Flashcard('Concept 2', 'Definition 2', 'Category 2', [
+            'Example 1',
+            'Example 2'
+        ])
     ];
     deck = new Deck(flashcards);
 });
@@ -22,7 +27,8 @@ describe('Deck', () => {
             {
                 concept: 'Concept 1',
                 definition: 'Definition 1',
-                category: 'Category 1'
+                category: 'Category 1',
+                _examples: ['Example 1']
             }
         );
     });
@@ -44,6 +50,21 @@ describe('drawFlashcard', () => {
         deck.drawFlashcard();
         expect(deck._removedFlashcards).toEqual([deck._currentFlashcard]);
     });
+    test('Throws an error if the flashcards array is empty', () => {
+        deck.flashcards = [];
+        expect(() => {
+            deck.drawFlashcard();
+        }).toThrow(new Error('Oh no! There are no flashcards.'));
+    });
+});
+
+describe('_removeFlashcard', () => {
+    test('Throws an error if the flashcards array is empty', () => {
+        deck.flashcards = [];
+        expect(() => {
+            deck._removeFlashcard();
+        }).toThrow(new Error('Oh no! There are no flashcards.'));
+    });
 });
 
 describe('skipFlashcard', () => {
@@ -51,6 +72,11 @@ describe('skipFlashcard', () => {
         deck._currentFlashcard = 'Anything but null';
         deck.skipFlashcard();
         expect(deck._currentFlashcard).toBe(null);
+    });
+    test('Throws an error if the _currentFlashcard property is falsy', () => {
+        expect(() => {
+            deck.skipFlashcard();
+        }).toThrow(new Error('Please draw a flashcard first!'));
     });
 });
 
@@ -60,7 +86,8 @@ describe('resetDeck', () => {
             {
                 concept: 'Concept 3',
                 definition: 'Definition 3',
-                category: 'Category 3'
+                category: 'Category 3',
+                _examples: ['Example 3']
             }
         ];
         deck.resetDeck();
@@ -68,17 +95,20 @@ describe('resetDeck', () => {
             {
                 concept: 'Concept 1',
                 definition: 'Definition 1',
-                category: 'Category 1'
+                category: 'Category 1',
+                _examples: ['Example 1']
             },
             {
                 concept: 'Concept 2',
                 definition: 'Definition 2',
-                category: 'Category 2'
+                category: 'Category 2',
+                _examples: ['Example 1', 'Example 2']
             },
             {
                 concept: 'Concept 3',
                 definition: 'Definition 3',
-                category: 'Category 3'
+                category: 'Category 3',
+                _examples: ['Example 3']
             }
         ]);
     });
