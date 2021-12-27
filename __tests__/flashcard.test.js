@@ -39,6 +39,18 @@ describe('Flashcard', () => {
 });
 
 describe('showAllExamples', () => {
+    test('Throws an error if the _examples property is not an array', () => {
+        const error = 'The _examples property must be an array.';
+        flashcards[0]._examples = 'not an array';
+        expect(() => {
+            flashcards[0].showAllExamples()
+        }).toThrow(new Error(error));
+    });
+    test('Returns a formatted string if no _examples', () => {
+        const error = `Oops! It looks like there's no examples for "${flashcards[0].concept}" at the moment.`;
+        flashcards[0]._examples = [];
+        expect(flashcards[0].showAllExamples()).toEqual(error);
+    });
     test('Returns a formatted string of examples', () => {
         const examples = flashcards[0].showAllExamples();
         expect(examples).toEqual(`Here are the examples for ${flashcards[0].concept}!\n\nExample 1:\nExample 1`);

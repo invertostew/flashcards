@@ -41,6 +41,13 @@ describe('Deck', () => {
 });
 
 describe('drawFlashcard', () => {
+    test('Throws an error if the flashcards array is empty', () => {
+        const error = 'Oh no! There are no flashcards.';
+        deck.flashcards = [];
+        expect(() => {
+            deck.drawFlashcard();
+        }).toThrow(new Error(error));
+    });
     test('Updates the _currentFlashcard property', () => {
         expect(deck._currentFlashcard).toBe(null);
         deck.drawFlashcard();
@@ -50,33 +57,29 @@ describe('drawFlashcard', () => {
         deck.drawFlashcard();
         expect(deck._removedFlashcards).toEqual([deck._currentFlashcard]);
     });
-    test('Throws an error if the flashcards array is empty', () => {
-        deck.flashcards = [];
-        expect(() => {
-            deck.drawFlashcard();
-        }).toThrow(new Error('Oh no! There are no flashcards.'));
-    });
 });
 
 describe('_removeFlashcard', () => {
     test('Throws an error if the flashcards array is empty', () => {
+        const error = 'Oh no! There are no flashcards.';
         deck.flashcards = [];
         expect(() => {
             deck._removeFlashcard();
-        }).toThrow(new Error('Oh no! There are no flashcards.'));
+        }).toThrow(new Error(error));
     });
 });
 
 describe('skipFlashcard', () => {
+    test('Throws an error if the _currentFlashcard property is falsy', () => {
+        const error = 'Please draw a flashcard first!';
+        expect(() => {
+            deck.skipFlashcard();
+        }).toThrow(new Error(error));
+    });
     test('Resets the _currentFlashcard property to null', () => {
         deck._currentFlashcard = 'Anything but null';
         deck.skipFlashcard();
         expect(deck._currentFlashcard).toBe(null);
-    });
-    test('Throws an error if the _currentFlashcard property is falsy', () => {
-        expect(() => {
-            deck.skipFlashcard();
-        }).toThrow(new Error('Please draw a flashcard first!'));
     });
 });
 
