@@ -57,6 +57,14 @@ describe('drawFlashcard', () => {
         deck.drawFlashcard();
         expect(deck._removedFlashcards).toEqual([deck._currentFlashcard]);
     });
+    test('Returns the concept of the _currentFlashcard', () => {
+        deck.flashcards = [
+            new Flashcard('Concept 1', 'Definition 1', 'Category 1', [
+                'Example 1'
+            ])
+        ];
+        expect(deck.drawFlashcard()).toEqual('Concept 1');
+    });
 });
 
 describe('_removeFlashcard', () => {
@@ -80,6 +88,10 @@ describe('skipFlashcard', () => {
         deck._currentFlashcard = 'Anything but null';
         deck.skipFlashcard();
         expect(deck._currentFlashcard).toBe(null);
+    });
+    test('Returns a success message', () => {
+        deck._currentFlashcard = 'Anything but null';
+        expect(deck.skipFlashcard()).toEqual('You have skipped the current flashcard.');
     });
 });
 
@@ -124,5 +136,8 @@ describe('resetDeck', () => {
         deck._removedFlashcards = ['Anything but an empty array'];
         deck.resetDeck();
         expect(deck._removedFlashcards).toEqual([]);
+    });
+    test('Returns a success message', () => {
+        expect(deck.resetDeck()).toEqual('The deck has been reset!');
     });
 });
