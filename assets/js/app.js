@@ -20,6 +20,7 @@ const elements = {
         definition: document.querySelector('#definition')
     },
     controls: {
+        showExamples: document.querySelector('#show-examples'),
         drawFlashcard: document.querySelector('#draw-flashcard'),
         skipFlashcard: document.querySelector('#skip-flashcard'),
         resetDeck: document.querySelector('#reset-deck')
