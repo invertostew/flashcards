@@ -25,7 +25,7 @@ const elements = {
         skipFlashcard: document.querySelector('#skip-flashcard'),
         resetDeck: document.querySelector('#reset-deck')
     }
-}
+};
 
 const setFlashcardContent = () => {
     if (deck._currentFlashcard) {
@@ -35,7 +35,7 @@ const setFlashcardContent = () => {
         elements.flashcard.concept.textContent = 'Draw a Flashcard';
         elements.flashcard.definition.textContent = 'Please press the "Draw Flashcard" button.';
     }
-}
+};
 
 const toggleControls = () => {
     if (!deck.flashcards.length) {
@@ -55,22 +55,39 @@ const toggleControls = () => {
     } else {
         elements.controls.resetDeck.disabled = true;
     }
-}
+};
+
+const toggleAnimations = () => {
+    if (deck._currentFlashcard) {
+        elements.controls.drawFlashcard.classList.remove('twitch');
+    } else {
+        elements.controls.drawFlashcard.classList.add('twitch');
+    }
+
+    if (!deck.flashcards.length) {
+        elements.controls.resetDeck.classList.add('twitch');
+    } else {
+        elements.controls.resetDeck.classList.remove('twitch');
+    }
+};
 
 elements.controls.drawFlashcard.addEventListener('click', () => {
     deck.drawFlashcard();
     setFlashcardContent();
     toggleControls();
+    toggleAnimations();
 });
 
 elements.controls.skipFlashcard.addEventListener('click', () => {
     deck.skipFlashcard();
     setFlashcardContent();
     toggleControls();
+    toggleAnimations();
 });
 
 elements.controls.resetDeck.addEventListener('click', () => {
     deck.resetDeck();
     setFlashcardContent();
     toggleControls();
+    toggleAnimations();
 });

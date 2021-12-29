@@ -64,7 +64,7 @@ ol {
 }
 
 .twitch {
-    animation: twitch 4s infinite;
+    animation: twitch 5s infinite;
     animation-delay: 1s;
 }
 
@@ -76,6 +76,12 @@ ol {
         transform: scale(1.1, 0.9);
     }
     10% {
+        transform: scale(0.95, 1.05);
+    }
+    15% {
+        transform: scale(1.1, 0.9);
+    }
+    20% {
         transform: scale(0.95, 1.05);
     }
     100% {
