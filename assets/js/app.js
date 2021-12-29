@@ -37,17 +37,40 @@ const setFlashcardContent = () => {
     }
 }
 
+const toggleControls = () => {
+    if (!deck.flashcards.length) {
+        elements.controls.drawFlashcard.disabled = true;
+    } else {
+        elements.controls.drawFlashcard.disabled = false;
+    }
+
+    if (deck._currentFlashcard) {
+        elements.controls.skipFlashcard.disabled = false;
+    } else {
+        elements.controls.skipFlashcard.disabled = true;
+    }
+
+    if (deck._removedFlashcards.length) {
+        elements.controls.resetDeck.disabled = false;
+    } else {
+        elements.controls.resetDeck.disabled = true;
+    }
+}
+
 elements.controls.drawFlashcard.addEventListener('click', () => {
     deck.drawFlashcard();
     setFlashcardContent();
+    toggleControls();
 });
 
 elements.controls.skipFlashcard.addEventListener('click', () => {
     deck.skipFlashcard();
     setFlashcardContent();
+    toggleControls();
 });
 
 elements.controls.resetDeck.addEventListener('click', () => {
     deck.resetDeck();
     setFlashcardContent();
+    toggleControls();
 });
