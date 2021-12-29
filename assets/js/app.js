@@ -17,10 +17,10 @@ const deck = new Deck(flashcards);
 const elements = {
     flashcard: {
         concept: document.querySelector('#concept'),
-        definition: document.querySelector('#definition')
+        definition: document.querySelector('#definition'),
+        examples: document.querySelector('#examples')
     },
     controls: {
-        showExamples: document.querySelector('#show-examples'),
         drawFlashcard: document.querySelector('#draw-flashcard'),
         skipFlashcard: document.querySelector('#skip-flashcard'),
         resetDeck: document.querySelector('#reset-deck')
@@ -31,9 +31,13 @@ const setFlashcardContent = () => {
     if (deck._currentFlashcard) {
         elements.flashcard.concept.textContent = deck._currentFlashcard.concept;
         elements.flashcard.definition.textContent = deck._currentFlashcard.definition;
+        elements.flashcard.examples.textContent = deck._currentFlashcard.showAllExamples();
+        elements.flashcard.examples.classList.remove('hidden');
     } else {
         elements.flashcard.concept.textContent = 'Draw a Flashcard';
         elements.flashcard.definition.textContent = 'Please press the "Draw Flashcard" button.';
+        elements.flashcard.examples.textContent = '';
+        elements.flashcard.examples.classList.add('hidden');
     }
 };
 

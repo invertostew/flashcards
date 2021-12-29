@@ -57,12 +57,6 @@ ol {
     opacity: 0;
 }
 
-.show {
-    display: block;
-    visibility: visible;
-    opacity: 1;
-}
-
 .twitch {
     animation: twitch 5s infinite;
     animation-delay: 1s;
@@ -150,6 +144,14 @@ ol {
     margin-top: 1em;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+}
+
+.flashcard__back #examples {
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: #282a36;
+    color: #f8f8f2;
 }
 
 /*
