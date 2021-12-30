@@ -39,7 +39,7 @@ Currently no application dependencies.
         ];
 
         const deck = new Deck(flashcards);
-    ```
+      ```
 6. Now you have access to the following methods:
     * To draw a flashcard:
         * `drawFlashcard()` - will return a concept/topic - removes it from the deck so it can't be drawn again.
