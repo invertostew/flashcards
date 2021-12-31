@@ -122,7 +122,7 @@ ol {
     height: 100%;
     border-radius: 8px;
     backface-visibility: hidden;
-    padding: 1.25em;
+    padding: 2em;
 }
 
 .flashcard__front {
@@ -147,11 +147,14 @@ ol {
 }
 
 .flashcard__back #examples {
+    width: 100%;
     margin-top: 1em;
     padding: 1em;
     border-radius: 8px;
     background-color: #282a36;
     color: #f8f8f2;
+    white-space: pre-wrap;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 /*

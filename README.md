@@ -44,11 +44,11 @@ Currently no application dependencies.
     * To draw a flashcard:
         * `drawFlashcard()` - will return a concept/topic - removes it from the deck so it can't be drawn again.
     * Once you have a card drawn, you can:
-        * `skipFlashcard()` - skip the flashcard if you don't know it.
+        * `skipFlashcard();` - skip the flashcard if you don't know it.
         * `deck._currentFlashcard.concept` - Show the concept of the currently drawn flashcard.
         * `deck._currentFlashcard.definition` - Show the definition of the currently drawn flashcard.
         * `deck._currentFlashcard.category` - Show the category of the currently drawn flashcard.
-        * `deck._currentFlashcard.showAllExamples()` - Returns a formatted string of all the examples.
+        * `deck._currentFlashcard.showAllExamples();` - Returns a formatted string of all the examples.
     * To reset the deck:
         * `deck.resetDeck();` - returns removed flashcards back to the flashcards array.
 

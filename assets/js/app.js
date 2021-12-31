@@ -75,23 +75,23 @@ const toggleAnimations = () => {
     }
 };
 
-elements.controls.drawFlashcard.addEventListener('click', () => {
-    deck.drawFlashcard();
+const updateCardAndControls = () => {
     setFlashcardContent();
     toggleControls();
     toggleAnimations();
+}
+
+elements.controls.drawFlashcard.addEventListener('click', () => {
+    deck.drawFlashcard();
+    updateCardAndControls();
 });
 
 elements.controls.skipFlashcard.addEventListener('click', () => {
     deck.skipFlashcard();
-    setFlashcardContent();
-    toggleControls();
-    toggleAnimations();
+    updateCardAndControls();
 });
 
 elements.controls.resetDeck.addEventListener('click', () => {
     deck.resetDeck();
-    setFlashcardContent();
-    toggleControls();
-    toggleAnimations();
+    updateCardAndControls();
 });
