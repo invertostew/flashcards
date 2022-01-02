@@ -1,7 +1,10 @@
 // Set up
+const complexExample = `Some really complex
+multi line
+example`;
 const flashcards = [
     new Flashcard('Concept 1', 'Definition 1', 'Category 1', [
-        'Example 1'
+        complexExample
     ]),
     new Flashcard('Concept 2', 'Definition 2', 'Category 2', [
         'Example 2'

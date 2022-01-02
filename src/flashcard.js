@@ -16,10 +16,21 @@ Flashcard.prototype.showAllExamples = function () {
         return `Oops! It looks like there's no examples for "${this.concept}" at the moment.`;
     }
 
-    const examplesIntro = `Here are the examples for ${this.concept}!`;
+    const examplesIntro = `Examples for ${this.concept}!`;
     const examples = this._examples.reduce((accumulator, example, index) => {
-        if (index === 0) return `Example ${index + 1}:\n${example}`;
-        return `${accumulator}\n\nExample ${index + 1}:\n${example}`;
+        if (index === 0) {
+            return `
+Example ${index + 1}:
+${example}
+`.trim();
+        }
+
+        return `
+${accumulator}
+
+Example ${index + 1}:
+${example}
+`.trim();
     }, '');
     
     return `${examplesIntro}\n\n${examples}`;

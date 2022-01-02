@@ -53,8 +53,8 @@ describe('showAllExamples', () => {
     });
     test('Returns a formatted string of examples', () => {
         const examples = flashcards[0].showAllExamples();
-        expect(examples).toEqual(`Here are the examples for ${flashcards[0].concept}!\n\nExample 1:\nExample 1`);
+        expect(examples).toEqual(`Examples for Concept 1!\n\nExample 1:\nExample 1`);
         const twoExamples = flashcards[1].showAllExamples();
-        expect(twoExamples).toEqual(`Here are the examples for ${flashcards[1].concept}!\n\nExample 1:\nExample 1\n\nExample 2:\nExample 2`);
+        expect(twoExamples).toEqual(`Examples for Concept 2!\n\nExample 1:\nExample 1\n\nExample 2:\nExample 2`);
     });
 });
