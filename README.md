@@ -3,6 +3,8 @@
 ## Description
 Just a bit of a personal project built over the Christmas period whilst on break from Manchester Codes.
 
+GUI Version available [here](https://invertostew.github.io/flashcards/)!
+
 ### Features
 * Create an array of flashcards.
 * Create a deck of flashcards.
@@ -33,7 +35,8 @@ Currently no application dependencies.
     * ```javascript
         const flashcards = [
             new Flashcard('Concept', 'Definition', 'Category', [
-                'Optional Example'
+                'Optional Example',
+                'Optional Example 2'
             ]),
             ...
         ];
@@ -42,7 +45,7 @@ Currently no application dependencies.
       ```
 6. Now you have access to the following methods:
     * To draw a flashcard:
-        * `drawFlashcard()` - will return a concept/topic - removes it from the deck so it can't be drawn again.
+        * `drawFlashcard();` - will return a concept/topic - removes it from the deck so it can't be drawn again.
     * Once you have a card drawn, you can:
         * `skipFlashcard();` - skip the flashcard if you don't know it.
         * `deck._currentFlashcard.concept;` - Show the concept of the currently drawn flashcard.
