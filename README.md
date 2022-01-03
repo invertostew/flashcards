@@ -45,9 +45,9 @@ Currently no application dependencies.
       ```
 6. Now you have access to the following methods:
     * To draw a flashcard:
-        * `drawFlashcard();` - will return a concept/topic - removes it from the deck so it can't be drawn again.
+        * `deck.drawFlashcard();` - will return a concept/topic - removes it from the deck so it can't be drawn again.
     * Once you have a card drawn, you can:
-        * `skipFlashcard();` - skip the flashcard if you don't know it.
+        * `deck.skipFlashcard();` - skip the flashcard if you don't know it.
         * `deck._currentFlashcard.concept;` - Show the concept of the currently drawn flashcard.
         * `deck._currentFlashcard.definition;` - Show the definition of the currently drawn flashcard.
         * `deck._currentFlashcard.category;` - Show the category of the currently drawn flashcard.
